@@ -7,7 +7,8 @@ import DemoComponent from './components/DemoComponent.vue';
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <h3>kjdhfiuerh</h3>
+    <h3>kjdhfiuerh</h3>\
+    <h4>nvxnvnxcv</h4>
     <div class="wrapper">
       <HelloWorld/>
       <DemoComponent :txtMSG="'Nội dung dữ liệu từ cha sang con'" @clickMe="clickMe"/>
