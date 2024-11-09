@@ -8,7 +8,7 @@ import MessageComponent from './views/MessageComponent.vue';
 </script>
 
 <template>
-  <header>
+  <!-- <header>
     <div class="wrapper">
       <nav>
         <RouterLink to="/auth">Login & Register</RouterLink>
@@ -18,7 +18,7 @@ import MessageComponent from './views/MessageComponent.vue';
         <RouterLink to="/message">Message</RouterLink>
       </nav>
     </div>
-  </header>
+  </header> -->
 
   <RouterView />
 </template>
