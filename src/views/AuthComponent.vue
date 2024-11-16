@@ -330,13 +330,18 @@ import axios from 'axios';
                         re_password: this.registerRePassword
                     }).then(function (res) {
                         // Api response success
-                        alert('Nhay vao then');
+                        if (res.data.code == 200) {
+                            this.chooseType('login');
+                        } else {
+                            alert(res.data.message);
+                        }
                     }).catch(function (err) {
                         // API response error code
-                        alert('Nhay vao catch');
+                        alert(err);
                     });
                 } catch (err) {
                     // Call to api failed
+                    console.log(err);
                 }
             }
         },
