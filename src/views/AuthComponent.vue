@@ -331,7 +331,7 @@ import axios from 'axios';
                     }).then(function (res) {
                         // Api response success
                         if (res.data.code == 200) {
-                            this.chooseType('login');
+                            window.location.reload();
                         } else {
                             alert(res.data.message);
                         }
