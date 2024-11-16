@@ -22,7 +22,7 @@
                                 </ul>
                                 <div class="sign_in_sec" :class="{current : choseType == 'login'}" id="tab-1">
                                     <h3>サインイン</h3>
-                                    <form>
+                                    <div class="form">
                                         <div class="row">
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
@@ -41,14 +41,14 @@
                                                 <button type="submit" value="submit">サインイン</button>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                     <!--login-resources end-->
                                 </div>
                                 <!--sign_in_sec end-->
                                 <div class="sign_in_sec" :class="{current : choseType == 'register'}" id="tab-2">
                                     <!--signup-tab end-->
                                     <div class="dff-tab current" id="tab-3">
-                                        <form action="#">
+                                        <div class="form">
                                             <div class="row">
                                                 <div class="col-lg-12 no-pdd">
                                                     <div class="sn-field">
@@ -101,7 +101,7 @@
                                                     <button :class="{'cursor-not-allow' : this.registerTOS === false}" :disabled="this.registerTOS === false" v-on:click="registerValidation()">開始する</button>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -322,12 +322,18 @@ import axios from 'axios';
              */
             async register() {
                 try {
-                    const callRegisterAPI = await axios.post('/register', {
+                    const callRegisterAPI = await axios.post('http://localhost/wise_social_api/public/api/register', {
                         // Pass param to header
+                        name: this.registerFullName,
+                        email: this.registerEmail,
+                        password: this.registerPassword,
+                        re_password: this.registerRePassword
                     }).then(function (res) {
                         // Api response success
+                        alert('Nhay vao then');
                     }).catch(function (err) {
                         // API response error code
+                        alert('Nhay vao catch');
                     });
                 } catch (err) {
                     // Call to api failed
