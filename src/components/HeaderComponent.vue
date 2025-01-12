@@ -10,7 +10,7 @@
                     <form>
                         <input v-on:keyup="search()" type="text" name="search" placeholder="検索..." v-model="keyWord">
                     </form>
-                    <div class="" id="area-chat">
+                    <div v-if="searchStatus" class="" id="area-chat">
                         <div v-for="user in users" class="account-item">
                             <div class="avatar">
                                 <img v-if="user.avatar == null" src="../assets/images/resources/user2.png" alt="">
@@ -134,14 +134,15 @@
                 msg: 'Hello world!',
                 users: [],
                 token: sessionStorage.getItem("token"),
-                keyWord: ''
+                keyWord: '',
+                searchStatus: false
             }
         },
         created() {
             /***********************************************************************************************************
              *********************** Initialize data when this component is used. **************************************
              **********************************************************************************************************/
-            this.search();
+            
         },
         mounted() {
             /***********************************************************************************************************
@@ -165,14 +166,13 @@
             /***********************************************************************************************************
              ******************************* Default functions that handle local data **********************************
              **********************************************************************************************************/
-
+            
             /**
              * Example default function not using param
              */
             defaultFunction() {
                 this.msg = "Replace message here!";
             },
-
             /**
              * Example default function using param 
              *
@@ -187,11 +187,12 @@
             /***********************************************************************************************************
              ******* Async and await functions for manipulating server-side data through internal API protocols ********
              **********************************************************************************************************/
-
+            
             /**
              * Call API sample
              */
             async search() {
+                this.searchStatus = true;
                 try {
                     const callAPI = await axios.get('http://localhost/wise_social_api/public/api/search', {
                         /************ Attach param for request here ***************/
